@@ -69,13 +69,9 @@ This plugin allows Moodle users to generate PowerPoint presentations from text p
 - Check your Gemini API quota at https://ai.google.dev/
 - Verify your prompt is clear and specific
 
-## Support
-For issues and feature requests, contact the developer.
-
-## License
-GNU GPL v3 or later
 
 ## Author
-Developed by [Your Name]
-Version 0.1 (Proof of Concept)
+Developed by IntegrationPath India LLC
+Version 1
+
 
