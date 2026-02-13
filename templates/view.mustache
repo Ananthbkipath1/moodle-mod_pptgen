@@ -1,0 +1,82 @@
+<div class="mod_pptgen">
+
+  {{#hasnotification}}
+    <div class="alert {{#notificationtype}}alert-{{notificationtype}}{{/notificationtype}}" role="alert">
+      {{{notification}}}
+    </div>
+  {{/hasnotification}}
+
+  <form method="post" action="" id="pptgen-form" class="mt-3">
+    <input type="hidden" name="sesskey" value="{{sesskey}}">
+    <input type="hidden" name="submitted" value="1">
+
+    <div class="form-group">
+      <label for="pptgen-prompt">{{#str}}prompt_label, mod_pptgen{{/str}}</label>
+      <textarea id="pptgen-prompt" class="form-control" name="prompt" required rows="6"></textarea>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="pptgen-slides">{{#str}}slides_label, mod_pptgen{{/str}}</label>
+      <input id="pptgen-slides"
+             class="form-control"
+             type="number"
+             name="slides"
+             value="{{defaultslides}}"
+             min="{{minslides}}"
+             max="{{maxslides}}">
+    </div>
+
+    <div class="mt-3">
+      <button id="submit-btn" type="submit" class="btn btn-primary">
+        {{#str}}generate_btn, mod_pptgen{{/str}}
+      </button>
+    </div>
+  </form>
+
+  <div id="loading-indicator" class="mt-3" style="display:none;">
+    <div class="d-flex align-items-center" style="gap:10px;">
+      <div class="spinner-border" role="status" aria-label="loading"></div>
+      <span class="text-muted">{{#str}}loading_text, mod_pptgen{{/str}}</span>
+    </div>
+  </div>
+
+  {{#topicdisplay}}
+    <div class="mt-3" style="font-weight:bold;">
+      {{{topicdisplay}}}
+    </div>
+  {{/topicdisplay}}
+
+  {{#hasdownload}}
+    <div class="mt-2">
+      <a class="btn btn-success" href="{{downloadurl}}">
+        {{#str}}download_btn, mod_pptgen{{/str}}
+      </a>
+    </div>
+  {{/hasdownload}}
+
+  {{#debugdata}}
+    <pre class="mt-3" style="border:1px solid #ccc; padding:10px;">{{debugdata}}</pre>
+  {{/debugdata}}
+
+</div>
+
+{{! Simple inline JS to show spinner (ok for now). }}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var form = document.getElementById("pptgen-form");
+  var submitBtn = document.getElementById("submit-btn");
+  var loading = document.getElementById("loading-indicator");
+
+  if (form) {
+    form.addEventListener("submit", function() {
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add("disabled");
+      }
+      if (loading) {
+        loading.style.display = "block";
+      }
+    });
+  }
+});
+</script>
