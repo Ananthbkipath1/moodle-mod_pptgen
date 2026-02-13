@@ -1,4 +1,11 @@
 <?php
+/**
+ * Backup task for mod_pptgen.
+ *
+ * @package     mod_pptgen
+ * @copyright   2026 IntegrationPath India LLC <ananth.bk@ipath.io>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/course/moodleform_mod.php');

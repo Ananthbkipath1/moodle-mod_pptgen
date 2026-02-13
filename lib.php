@@ -1,4 +1,11 @@
 <?php
+/**
+ * Core functions for the Prompt2Slide AI plugin.
+ *
+ * @package     mod_pptgen
+ * @copyright   2026 IntegrationPath India LLC <ananth.bk@ipath.io>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 defined('MOODLE_INTERNAL') || die();
 
 function pptgen_supports($feature) {
@@ -10,6 +17,12 @@ function pptgen_supports($feature) {
         default:
             return null;
     }
+}
+/**
+ * Wrapper used by view.php to generate PPT.
+ */
+function pptgen_generate_ppt(string $prompt, int $slides, \context $context): string {
+    return \mod_pptgen\generator::generate_ppt($prompt, $slides, $context);
 }
 
 function pptgen_add_instance($data, $mform = null) {
