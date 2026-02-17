@@ -24,7 +24,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_pptgen'; // DO NOT CHANGE THIS! (Internal ID)
-$plugin->version = 2026021105;     // Update date: YYYYMMDD01
+$plugin->version = 2026021106;     // Update date: YYYYMMDD01
 $plugin->requires = 2023072400;    // Moodle 4.3+
 $plugin->maturity = MATURITY_BETA; // It's getting stable!
 $plugin->release = '1.0 Prompt2Slide AI'; // Update this name
